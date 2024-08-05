@@ -4,4 +4,4 @@ haru = Flask(__name__)
 @haru.route("/tyatto")
 def tatemono():
     return render_template("tyattonope-zi.html")
-haru.run(debug=True)
+haru.run(host="0.0.0.0")
