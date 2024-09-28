@@ -11,4 +11,7 @@ def okane():
 def unti():
     return render_template("tyatonope-zi.html")
 
+@haru.route("/memo")
+def WC():
+    return render_template("memonope-zi.html")
 haru.run(debug=True, host="0.0.0.0")
