@@ -14,4 +14,5 @@ def unti():
 @haru.route("/memo")
 def WC():
     return render_template("memonope-zi.html")
+
 haru.run(debug=True, host="0.0.0.0")
