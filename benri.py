@@ -15,7 +15,7 @@ def okane():
 def unti():
     return render_template("tyatonope-zi.html")
 
-@haru.route("/memo")
+@haru.route("/memo", methods=["GET", "POST"])
 def WC():
     text=""
     if request.method == "POST" :
