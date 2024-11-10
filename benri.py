@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-
+")
 from flask import redirect
 from flask import request
 from hanage import Memo
@@ -14,11 +14,16 @@ def okane():
 @haru.route("/tyato")
 def unti():
     return render_template("tyatonope-zi.html")
-"""
+
 @haru.route("/memo")
 def WC():
-    return render_template("memonope-zi.html")
-"""
+    text=""
+    if request.accept_method == "POST" :
+        text = request.form["input_text"]
+
+
+    return render_template("memonope-zi.html",text = text )
+
 @haru.route("/memo1", methods=["POST"])
 def memo1():
     memo=request.form.get("memo")
@@ -28,8 +33,7 @@ def memo1():
 haru.run(debug=True, host="0.0.0.0")
 
 @haru.route("/memo2", methods=["GET","POST"])
-def memo2():
-    memo=request.form.get("memo")
-    Memo.create(memo=memo)
-    return redirect("/memo")
+
+def WC():
+    return render_template("memonope-zi.html")
 

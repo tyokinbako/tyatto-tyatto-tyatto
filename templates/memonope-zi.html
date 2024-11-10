@@ -44,12 +44,16 @@
           </div>
         </div>
       </nav>
-      <form action="/memo2" method="post">ポン・デ・ショコラ解禁
+      <form action="/memo1" method="post">ポン・デ・ショコラ解禁
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
           <textarea name="memo" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-outline-info">メモ</button>
+        {% if text %}
+        <h2>るるるるるる<h2>
+        <p>{{ text }}</p>
+        {% endif %}
       </form>
 </body>
 </html>
