@@ -26,3 +26,10 @@ def memo1():
     return redirect("/memo")
                     
 haru.run(debug=True, host="0.0.0.0")
+
+@haru.route("/memo2", methods=["GET","POST"])
+def memo2():
+    memo=request.form.get("memo")
+    Memo.create(memo=memo)
+    return redirect("/memo")
+
