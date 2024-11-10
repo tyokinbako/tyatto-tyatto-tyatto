@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-")
+
 from flask import redirect
 from flask import request
 from hanage import Memo
@@ -18,11 +18,11 @@ def unti():
 @haru.route("/memo")
 def WC():
     text=""
-    if request.accept_method == "POST" :
+    if request.method == "POST" :
         text = request.form["input_text"]
 
 
-    return render_template("memonope-zi.html",text = text )
+    return render_template("memonope-zi.html",text = text)
 
 @haru.route("/memo1", methods=["POST"])
 def memo1():
