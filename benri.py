@@ -14,11 +14,11 @@ def okane():
 @haru.route("/tyato")
 def unti():
     return render_template("tyatonope-zi.html")
-
+"""
 @haru.route("/memo")
 def WC():
     return render_template("memonope-zi.html")
-
+"""
 @haru.route("/memo1", methods=["POST"])
 def memo1():
     memo=request.form.get("memo")
