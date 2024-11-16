@@ -25,6 +25,12 @@ def memo1():
     memo=request.form.get("memo")
     Memo.create(memo=memo)
     return redirect("/memo")
-                    
+
+@haru.route("/memo_keshi/<id>", methods=["POST"])
+def memo_keshi(id):
+    memo = Memo.get(id=id)
+    memo.delete_instance()
+    return redirect("/memo")
+    
 haru.run(debug=True, host="0.0.0.0")
 

@@ -28,7 +28,11 @@
           {% for m in memo_tati %}
           <tr>
             <td>{{m.memo}}</td>
-            <td><button type="button" class="btn btn-outline-danger">消しゴム</button></td>
+            <td>
+              <form action="/memo_keshi/{{m.id}}" method="post">
+                <button type="submit" class="btn btn-outline-danger">消しゴム</button>
+              </form>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
