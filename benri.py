@@ -17,12 +17,8 @@ def unti():
 
 @haru.route("/memo", methods=["GET", "POST"])
 def WC():
-    text=""
-    if request.method == "POST" :
-        text = request.form["input_text"]
-
-
-    return render_template("memonope-zi.html",text = text)
+    memo_tati =Memo.select()
+    return render_template("memonope-zi.html",memo_tati = memo_tati)
 
 @haru.route("/memo1", methods=["POST"])
 def memo1():
@@ -31,9 +27,4 @@ def memo1():
     return redirect("/memo")
                     
 haru.run(debug=True, host="0.0.0.0")
-
-@haru.route("/memo2", methods=["GET","POST"])
-
-def WC():
-    return render_template("memonope-zi.html")
 
