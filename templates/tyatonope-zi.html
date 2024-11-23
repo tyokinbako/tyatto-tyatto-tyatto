@@ -45,16 +45,20 @@
         </div>
       </nav>
      
-      <h1>るるるです</h1>
-  <h2>こんにちは。</h2>
-    <img src="/static/shikoku.avif" width=“50px” height=“50px”>
-    <form action="/memo1" method="post"><h1>レインボーブリッジ封鎖できません！！！！！！</h1>
+      <h1>こんにちは。これに質問しまくれば</h1>
+  <h2>ニュートンぐらい賢くなれます</h2>
+  {% if random.randint(1, 5) == 1 %}
+    <img src="/static/カオス.png" width=“50px” height=“50px”>
+  {% else  %}
+    <img src="/static/ニュートン.jfif" width=“50px” height=“50px”>
+  {% endif %}
+    <form action="/ai" method="post">
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">この下にメモを書いてね</label>
-        <textarea name="memo" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1" class="form-label">この下に質問を書いてね</label>
+        <textarea name="ai" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
-      <button type="submit" class="btn btn-outline-info">メモ</button>
-      
+      <button type="submit" class="btn btn-outline-info">質問</button>
     </form>
+    <p class="text-white">{{answer}}</p>
 </body>
 </html>

@@ -5,6 +5,13 @@ from flask import redirect
 from flask import request
 from hanage import Memo
 
+import random
+import os
+
+import google.generativeai as genai
+
+genai.configure(api_key=os.getenv("API_KEY"))
+
 haru = Flask(__name__)
 
 @haru.route("/kobiru")
@@ -13,7 +20,8 @@ def okane():
 
 @haru.route("/tyato")
 def unti():
-    return render_template("tyatonope-zi.html")
+    answer=""
+    return render_template("tyatonope-zi.html", random=random, answer=answer)
 
 @haru.route("/memo", methods=["GET", "POST"])
 def WC():
@@ -31,6 +39,15 @@ def memo_keshi(id):
     memo = Memo.get(id=id)
     memo.delete_instance()
     return redirect("/memo")
-    
-haru.run(debug=True, host="0.0.0.0")
 
+
+@haru.route("/ai", methods=["POST"])
+def ai():
+    ai=request.form.get("ai")
+    model = genai.GenerativeModel("gemini-pro")
+    response = model.generate_content(ai)
+    answer = response.text
+    print(answer)
+    return render_template("tyatonope-zi.html", random=random, answer=answer)
+
+haru.run(debug=True, host="0.0.0.0")
