@@ -45,7 +45,7 @@ def memo_keshi(id):
 def ai():
     ai=request.form.get("ai")
     model = genai.GenerativeModel("gemini-pro")
-    response = model.generate_content(ai)
+    response = model.generate_content(ai+"。ニュートン風に賢くしゃべって。")
     answer = response.text
     print(answer)
     return render_template("tyatonope-zi.html", random=random, answer=answer)
