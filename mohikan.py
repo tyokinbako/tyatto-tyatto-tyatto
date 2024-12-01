@@ -9,7 +9,7 @@ class Person(Model):
     class Meta:
         database = db # This model uses the "people.db" database.
 class Aso(Model):
-    memo = CharField()
+    aso = CharField()
     class Meta:
         database = db
 

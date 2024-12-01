@@ -51,7 +51,7 @@ def ai():
     print(answer)
     return render_template("tyatonope-zi.html", random=random, answer=answer)
 
-haru.run(debug=True, host="0.0.0.0")
+
 
 @haru.route("/aso", methods=["GET", "POST"])
 def hosi():
@@ -71,3 +71,4 @@ def aso_keshi(id):
     return redirect("/aso")
 
 
+haru.run(debug=True, host="0.0.0.0")
