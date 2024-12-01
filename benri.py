@@ -4,6 +4,7 @@ from flask import render_template
 from flask import redirect
 from flask import request
 from hanage import Memo
+from mohikan import Aso
 
 import random
 import os
@@ -51,4 +52,22 @@ def ai():
     return render_template("tyatonope-zi.html", random=random, answer=answer)
 
 haru.run(debug=True, host="0.0.0.0")
+
+@haru.route("/aso", methods=["GET", "POST"])
+def hosi():
+    kome_tati =Aso.select()
+    return render_template("asobinope-zi.html",kome_tati = kome_tati)
+
+@haru.route("/aso1", methods=["POST"])
+def aso1():
+    aso=request.form.get("aso")
+    Aso.create(aso=aso)
+    return redirect("/aso")
+
+@haru.route("/aso_keshi/<id>", methods=["POST"])
+def aso_keshi(id):
+    aso = Aso.get(id=id)
+    aso.delete_instance()
+    return redirect("/aso")
+
 
