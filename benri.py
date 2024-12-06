@@ -70,5 +70,8 @@ def aso_keshi(id):
     aso.delete_instance()
     return redirect("/aso")
 
+@haru.route("/cookpad")
+def cookpad():
+    return redirect("https://cookpad.com")
 
 haru.run(debug=True, host="0.0.0.0")
