@@ -72,6 +72,10 @@ def aso_keshi(id):
 
 @haru.route("/cookpad")
 def cookpad():
-    return redirect("https://cookpad.com")
+    cookpad = random.randint(1,7)
+    if cookpad == 3:
+         return redirect("https://cookpad.com/search/冷奴")
+    else:
+         return redirect("https://cookpad.com")
 
 haru.run(debug=True, host="0.0.0.0")
